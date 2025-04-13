@@ -1,0 +1,44 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "PetiteBasic",
+	"patterns": [
+		{ "include": "#comments" },
+		{ "include": "#labels" },
+		{ "include": "#operators" },
+		{ "include": "#reserved" },
+		{ "include": "#commands" },
+		{ "include": "#print-strings" },
+		{ "include": "#numbers" }
+	],
+	"repository": {
+		"comments": { "patterns": [{
+			"name": "comment.line.pb",
+			"match": "^\\s*rem.*"
+		}]},
+		"labels": { "patterns": [{
+			"name": "variable.parameter.pb",
+			"match": "^\\s*[^\\s:]+(?=:)"
+		}]},
+		"reserved": { "patterns": [{
+			"name": "keyword.control.pb",
+			"match": "^\\s*(if|goto|let)(?=\\s+)"
+		}]},
+		"commands": { "patterns": [{
+			"name": "entity.name.function.pb",
+			"match": "^\\s*(\\w+)(?=\\s+)"
+		}]},
+		"print-strings": { "patterns": [{
+			"name": "string.quoted.pb",
+			"match": "(?<=^\\s*print\\s).*"
+		}]},
+		"numbers": { "patterns": [{
+			"name": "constant.numeric.pb",
+			"match": "\\b[0-9]+\\b"
+		}]},
+		"operators": { "patterns": [{
+			"name": "keyword.control.pb",
+			"match": "[+\\-=:<>*/\\$]"
+		}]}
+	},
+	"scopeName": "source.pb"
+}

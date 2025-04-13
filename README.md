@@ -153,3 +153,13 @@ int main() {
   system("pause>nul");
 }
 ```
+
+### Versions
+All versions:
+- Beta 0.1:
+  - Beta 0.10
+    - Initial version
+  - Beta 0.11:
+    - Now the code interprets `\r` and `\t` characters as spaces
+    - Added vscode extension for syntax highlighting
+    - Added few examples

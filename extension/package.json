@@ -1,0 +1,25 @@
+{
+  "name": "petite-basic",
+  "displayName": "PetiteBasic",
+  "description": "Nice first-generation Basic-like language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "pb",
+      "aliases": ["PetiteBasic", "pb"],
+      "extensions": [".pb",".pb8"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "pb",
+      "scopeName": "source.pb",
+      "path": "./pb.tmLanguage.json"
+    }]
+  }
+}

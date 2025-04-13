@@ -4,7 +4,7 @@
         MOD:     No mods
         AUTHOR:  Lunaryss, 2025
         LICENSE: Public Domain, no warranty given, use at your own risk
-        VERSION: Beta 0.1
+        VERSION: Beta 0.11
 \******************************************************************************/
 
 
@@ -236,6 +236,7 @@ pb_value pb_get(char* name, char len)
     return pb_mem[pb_vars[var].addr];
 }
 
+// setting a value to a variable
 void pb_set(char* name, char len, pb_value value)
 {
   // new position of the variable
@@ -263,7 +264,7 @@ void pb_goto(char* label, char len) {
   label = pb_trim(label, &len);
   for (int i = 0; i < PB_CODE_LEN - len - 1; i++) 
     if (pb_code[i + len] == ':' && strncmp(pb_code + i, label, len) == 0)
-      pb_ptr = i + pb_code;
+      pb_ptr = i + pb_code - 1;
 }
 
 // interpreting the expression
@@ -382,8 +383,14 @@ void pb_line(char* line, char len)
 }
 
 // initializing the interpreter
-void pb_init() {
+void pb_init()
+{
+  // setting the pointer
   pb_ptr = pb_code;
+  
+  // removing carriage return
+  for (char* ptr = pb_ptr; *ptr != '\0'; ptr++)
+    *ptr = *ptr == '\r' || *ptr == '\t' ? ' ' : *ptr;
 }
 
 // interpret the sequence of commands

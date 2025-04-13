@@ -1,0 +1,6 @@
+{
+    "comments": { "lineComment": "rem" },
+    "brackets": [["(", ")"]],
+    "autoClosingPairs": [["(", ")"]],
+    "surroundingPairs": [["(", ")"], ["$", "$"]]
+}
